@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url:"https://rawg-video-games-database.p.rapidapi.com/games"
+  url:"https://rawg-video-games-database.p.rapidapi.com"
 };
 
 /*
