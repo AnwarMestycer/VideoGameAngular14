@@ -1,1 +1,60 @@
- 
+<div class="filters">
+  <mat-form-field>
+    <mat-label>Sort</mat-label>
+    <mat-select
+      panelClass="sort-select"
+      [(ngModel)]="sort"
+      (selectionChange)="searchGames(sort)"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-created">Created</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="games">  
+  <ng-container *ngFor="let game of games">
+    <div class="game" (click)="openGameDetails(game.id)">
+      <div class="game-thumb-container">
+        <img
+         *ngIf="game.background_image"
+          src="{{ game.background_image }}"
+          alt="thumbnail"
+          class="game-thumbnail"
+        />
+      <p *ngIf="!game.background_image">No image</p>
+      </div>
+      <div class="game-description">
+        <p class="game-name">{{ game.name }}</p>
+        <div class="game-platforms">
+          <!-- *ngFor="let gamePlatform of game.parent_platforms"             -->
+          <img
+            class="game-platform"
+            src="assets/platforms/grand-theft-auto-v.svg"
+            alt=""
+          />
+          <img
+            class="game-platform"
+            src="assets/platforms/icons8-windows-xp.svg"
+            alt=""
+          />
+          <img
+            class="game-platform"
+            src="assets/platforms/icons8-ps-5.svg"
+            alt=""
+          />
+          <img
+            class="game-platform"
+            src="assets/platforms/icons8-android-os.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </ng-container> 
+</div>

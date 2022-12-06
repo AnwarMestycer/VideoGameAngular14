@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GaugeModule } from 'angular-gauge';
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatIconModule } from '@angular/material/icon'
@@ -12,6 +12,10 @@ import { MatSelectModule } from '@angular/material/select'
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/http-errors-interceptor';
+import { DetailsComponent } from './components/details/details.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -21,6 +25,9 @@ const routes: Routes = [
   {
     path:'search/:game-search', 
     component:HomeComponent
+  },
+  {
+    path:'details/:id', component:DetailsComponent
   }
 ]
 @NgModule({
@@ -30,6 +37,7 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -38,10 +46,20 @@ const routes: Routes = [
     MatSelectModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
+    GaugeModule.forRoot(),
     RouterModule.forRoot(routes),
-    GaugeModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi:true,
+  },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi:true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
