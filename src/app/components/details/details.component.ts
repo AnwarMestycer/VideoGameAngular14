@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscribable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Game } from 'src/app/models/game.model';
 import { DataService } from 'src/app/services/data.service';
 
