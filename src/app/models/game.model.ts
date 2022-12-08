@@ -11,7 +11,7 @@ export interface Game{
     parent_platforms:Array<ParentPlatform>;
     publishers:Array<Publishers>;
     ratings:Array<Rating>;
-    screeshots:Array<Screenshots>;
+    screenshots:Array<Screenshots>;
     trailers:Array<Trailers>;
 }
 export interface APIResponse<T>{

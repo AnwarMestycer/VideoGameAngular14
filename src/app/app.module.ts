@@ -16,6 +16,7 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
 import { HttpErrorsInterceptor } from './interceptors/http-errors-interceptor';
 import { DetailsComponent } from './components/details/details.component';
 import { CommonModule } from '@angular/common';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 
 const routes: Routes = [
   {
@@ -34,8 +35,10 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     SearchBarComponent,
-    HomeComponent
-  ],
+    HomeComponent,
+    DetailsComponent,
+    GameTabsComponent
+    ],
   imports: [
     CommonModule,
     BrowserModule,

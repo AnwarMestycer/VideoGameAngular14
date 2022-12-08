@@ -30,9 +30,13 @@
                     </mwl-gauge> -->
                     <a class="game-gauge-label"
                         target="_blank"
-                        href="{{game.metacritic_url}}">Metacritic</a>
+                        href="{{game.metacritic_url}}">
+                        Metacritic
+                    </a>
                 </div>
             </div>
+            <!-- Game tabs-->
+            <app-game-tabs [game]="game"></app-game-tabs>
         </div>
     </div>
 </div>
