@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GaugeModule } from 'angular-gauge';
 import { MatTabsModule } from '@angular/material/tabs'
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from "@angular/material/icon";
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select'
 import { AppComponent } from './app.component';
@@ -16,6 +16,10 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
 import { HttpErrorsInterceptor } from './interceptors/http-errors-interceptor';
 import { DetailsComponent } from './components/details/details.component';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatMenuModule } from "@angular/material/menu";
+
+
 
 const routes: Routes = [
   {
@@ -43,11 +47,13 @@ const routes: Routes = [
     HttpClientModule,
     MatTabsModule,
     MatIconModule,
+    MatMenuModule,
     MatSelectModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     GaugeModule.forRoot(),
     RouterModule.forRoot(routes),
+    MatSnackBarModule
   ],
   providers: [
     {

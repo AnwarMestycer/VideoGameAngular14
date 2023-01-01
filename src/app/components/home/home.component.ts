@@ -34,13 +34,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     .getGameList(sort, search)
     .subscribe((gameList : APIResponse<Game>) => {
      this.games = gameList.results
-      console.log(gameList)
     })
 
   }
   openGameDetails(id: number):void{
     this.router.navigate(['details', id])
   }
+
+  onAddToCart(){}
   ngOnDestroy(): void {
     if(this.gameSub)
     {
@@ -51,4 +52,5 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.routeSub.unsubscribe()
     }
   }
+
 }
