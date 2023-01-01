@@ -54,20 +54,3 @@
     cursor: pointer;
     text-decoration: none;
 }
-.cart{
-position: relative;
-  height: 48px;
-  width: 70px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-
-&:hover {
-    .menu{
-      opacity: 1;
-      transition-duration: 1s;
-    }
-  }
-}
-
